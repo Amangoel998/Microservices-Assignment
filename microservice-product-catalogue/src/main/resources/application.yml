@@ -1,0 +1,32 @@
+server:
+    port: 8081
+
+spring:
+    application:
+        name: product-catalogue-service
+    datasource:
+        url: jdbc:mysql://localhost:3306/product_catalogue_db
+        username: aman_developer
+        password: Am@n1998
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+            defaultZone: http://localhost:8888/eureka/
+
+# If you want to import setting from config server
+# Only mention application name
+# Use config server files to be named same as application name
+# spring:
+#   cloud:
+#     config:
+#       uri: http://localhost:9000
+#
+# Then rename this file to bootstrap.yml

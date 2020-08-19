@@ -1,0 +1,38 @@
+server:
+    port: 8080
+spring:
+    application:
+        name: api-gateway-service   
+
+eureka:
+    client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+            defaultZone: http://localhost:8888/eureka
+zuul:
+    routes:
+        product-catalogue-service:
+            path: /product-catalogue/**
+            service-id: product-catalogue-service
+            # strip-prefix: true
+        recommedation-service:
+            path: /recommedation/
+            service-id: recommedation-service
+            strip-prefix: true
+        product-stock-service:
+            path: /product-stock/
+            service-id: product-stock-service
+            strip-prefix: true
+        product-price-service:
+            path: /product-price/
+            service-id: product-price-service
+            strip-prefix: true
+        shop-cart-service:
+            path: /shop-cart/
+            service-id: shop-cart-service
+            strip-prefix: true
+    # host:
+    #     connect-timeout-millis: 500000
+    #     socket-timeout-millis: 500000
+    # ignoredServices: '*'
